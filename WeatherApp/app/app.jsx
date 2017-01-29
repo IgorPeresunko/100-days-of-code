@@ -15,6 +15,9 @@ let Weather = require('Weather');
 let About = require('About');
 let Examples = require('Examples');
 
+//styles
+require('style!css!sass!applicationStyles');
+
 
 ReactDOM.render(
 	<Router history={hashHistory}>

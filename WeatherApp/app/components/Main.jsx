@@ -4,9 +4,8 @@ let Nav = require('Nav');
 let Main = React.createClass({
     render: function() {
         return (
-            <div>                
+            <div className="wrapper">                
                 <Nav/>
-                Main
                 {this.props.children}
             </div>
         );
