@@ -1,0 +1,35 @@
+
+*
+    box-sizing: border-box
+
+body
+    margin: 0
+    font-family: $font
+
+.top-bar
+    width: 100%
+    padding: 0 10px
+    background-color: #222
+    color: #ddd
+    border-bottom: 1px solid #000
+.menu
+    list-style-type: none
+    margin: 0
+    padding: 0
+    li
+        display: inline-block
+        padding: 20px 10px
+        &:first-child
+            color: $blue-color
+            font-weight: bold
+    a
+        text-decoration: none
+        color: inherit
+        &:hover
+            color: #fff
+.top-bar-right
+    float: right
+.top-bar-left
+    float: left
+.clear
+    clear: both
