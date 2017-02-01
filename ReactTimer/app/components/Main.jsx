@@ -7,7 +7,6 @@ const Main = (props) => {
     return (
         <div className="wrapper">                
             <Navigation/>
-            Main.jsx
             {props.children}
         </div>
     );    
