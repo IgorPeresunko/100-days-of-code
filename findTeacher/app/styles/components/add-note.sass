@@ -1,0 +1,44 @@
+.add-note
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    margin: auto
+    padding: 10px
+    z-index: 1000
+    width: 325px
+    height: 440px
+    border: none
+    background-color: #fff
+    text-align: center
+    font-family: $font
+    box-shadow: $shadow
+    animation: open .5s forwards ease
+
+    form
+        padding: 10px 20px
+        input, textarea
+            width: 100%
+            border: none
+            border-bottom: 1px solid $main-color-dark
+            padding: 8px
+            margin: 8px 0
+            font-size: 18px
+        button
+            padding: 8px 14px
+            border: 1px solid $main-color
+            font-size: 18px
+            background-color: transparent
+            cursor: pointer
+            transition: .3s
+            &:hover
+                background-color: $main-color-dark
+                color: #fff
+@keyframes open
+    0%
+        transform: scale(0) rotate(-90deg)
+    100%
+        transform: scale(1) rotate(0)
+

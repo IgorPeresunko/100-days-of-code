@@ -3,24 +3,28 @@ let React = require('react');
 //components
 const SearchLine = require('SearchLine');
 const TeacherList = require('TeacherList');
+const AddNote = require('AddNote');
+const Shadow = require('Shadow');
+const uuid = require('node-uuid');
 
 let Main = React.createClass({
     getInitialState: function() {
         return {
+            isAdding: true,
             teachers: [
                 {
-                    id: 1,
+                    id: uuid(),
                     name: 'Nezdoliy',
                     news: [
                         { 
-                            id: 1,
+                            id: uuid(),
                             where: '2-407',
                             day: '21.10.2017',
                             time: '12:00',
                             why: 'I will be doing nothing'
                         },
                         { 
-                            id: 2,
+                            id: uuid(),
                             where: '2-407',
                             day: '21.10.2017',
                             time: '12:00',
@@ -29,18 +33,18 @@ let Main = React.createClass({
                     ]
                 },
                 {
-                    id: 2,
+                    id: uuid(),
                     name: 'Borovleva',
                     news: [
                         { 
-                            id: 3,
+                            id: uuid(),
                             where: '2-407',
                             day: '21.10.2017',
                             time: '12:00',
                             why: 'I will be doing nothing'
                         },
                         { 
-                            id: 4,
+                            id: uuid(),
                             where: '2-407',
                             day: '21.10.2017',
                             time: '12:00',
@@ -49,18 +53,18 @@ let Main = React.createClass({
                     ]
                 },
                 {
-                    id: 3,
+                    id: uuid(),
                     name: 'Borovleva',
                     news: [
                         { 
-                            id: 4,
+                            id: uuid(),
                             where: '2-407',
                             day: '21.10.2017',
                             time: '12:00',
                             why: 'I will be doing nothing'
                         },
                         { 
-                            id: 5,
+                            id: uuid(),
                             where: '2-407',
                             day: '21.10.2017',
                             time: '12:00',
@@ -69,18 +73,18 @@ let Main = React.createClass({
                     ]
                 },
                 {
-                    id: 4,
+                    id: uuid(),
                     name: 'Borovleva',
                     news: [
                         { 
-                            id: 6,
+                            id: uuid(),
                             where: '2-407',
                             day: '21.10.2017',
                             time: '12:00',
                             why: 'I will be doing nothing'
                         },
                         { 
-                            id: 7,
+                            id: uuid(),
                             where: '2-407',
                             day: '21.10.2017',
                             time: '12:00',
@@ -91,10 +95,41 @@ let Main = React.createClass({
             ]
         }
     },
+    handleAddNote: function() {
+        this.setState({
+            isAdding: !this.state.isAdding
+        });
+    },   
+    handleAddNewData: function(where, time, date, why) {
+        /*this.setState({
+            teachers: [
+                ...this.state.teachers,
+                {
+                    id: uuid(),
+                    name: 'currentUser',
+                    news: [
+                        ...this.state.teachers
+                    ]
+                }
+            ]
+        });*/
+    },
     render: function() {
+
+        let showAddNote = () => {
+            if (this.state.isAdding) {
+                return (
+                    <div> 
+                        <AddNote addNewData={this.handleAddNewData}/>
+                        <Shadow hideShadow={this.handleAddNote}/>                   
+                    </div>                    
+                );
+            }
+        }
         return ( 
             <div className="wrapper">
-                <SearchLine/>
+                {showAddNote()}
+                <SearchLine showAddNote={this.handleAddNote}/>
                 <TeacherList teachers={this.state.teachers}/>
             </div>  
         );

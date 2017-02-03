@@ -4,6 +4,9 @@ const React = require('react');
 const TeacherBlock = require('TeacherBlock');
 
 const TeacherList = React.createClass({
+    handleWheel: function(event) {
+        this.element.scrollLeft += event.deltaY;
+    },
     render: function() {
 
         let {teachers} = this.props;
@@ -15,7 +18,7 @@ const TeacherList = React.createClass({
             });
         }
         return (
-            <div className="teacher-list">
+            <div className="teacher-list" ref={e=>this.element=e} onWheel={this.handleWheel}>
                 {renderTeachers()}
             </div>
         );
