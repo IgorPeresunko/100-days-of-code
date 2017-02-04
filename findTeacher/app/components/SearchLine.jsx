@@ -10,9 +10,7 @@ const SearchLine = React.createClass({
         }
     },
     handleSearch: function(searchTeacher) {
-        this.setState({
-           searchTeacher: searchTeacher.toLowerCase() 
-        });
+        this.props.onSearch(searchTeacher);
     },
     handleAddNote: function() {
         this.props.showAddNote();

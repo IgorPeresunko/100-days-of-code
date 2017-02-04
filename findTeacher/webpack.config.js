@@ -1,3 +1,5 @@
+var webpack = require("webpack");
+
 module.exports = {
 	entry: './app/app.jsx',
 	output: {
@@ -26,5 +28,12 @@ module.exports = {
 			exclude: /(node_modules|bower_components)/
 			}	
 		]
-	}
+	},
+	plugins: [
+		new webpack.optimize.UglifyJsPlugin({
+			sourceMap: false,
+			warnings: false,
+			mangle: true
+		})
+	]
 };
