@@ -26,33 +26,36 @@ function draw() {
 }
 
 ///// UPDATING //////
-
+let collision = false;
 function update() {
 
-	for (var i = 0; i < circles.length; i++) {
+	if (collision) {
+		for (var i = 0; i < circles.length; i++) {
 
-		circles[i].y += circles[i].dy;
-		circles[i].x += circles[i].dx;
+			circles[i].y += circles[i].dy;
+			circles[i].x += circles[i].dx;
 
-		circles[i].dy += circles[i].dy >= 10 ? 0 : 0.1;
+			circles[i].dy += circles[i].dy >= 10 ? 0 : 0.1;
 
-		if (circles[i].y + circles[i].radius >= canvas.height) {
-			circles[i].y = canvas.height - circles[i].radius;
-			circles[i].dy /= 2;
-			circles[i].dy *= -1;
-		}
+			if (circles[i].y + circles[i].radius >= canvas.height) {
+				circles[i].y = canvas.height - circles[i].radius;
+				circles[i].dy /= 2;
+				circles[i].dy *= -1;
+			}
 
-		if (circles[i].x + circles[i].radius >= canvas.width) {
-			circles[i].x = canvas.width - circles[i].radius;
-			circles[i].dx /= 2;
-			circles[i].dx *= -1;
-		}
-		if (circles[i].x - circles[i].radius <= 0) {
-			circles[i].x = circles[i].radius;
-			circles[i].dx /= 2;
-			circles[i].dx *= -1;
+			if (circles[i].x + circles[i].radius >= canvas.width) {
+				circles[i].x = canvas.width - circles[i].radius;
+				circles[i].dx /= 2;
+				circles[i].dx *= -1;
+			}
+			if (circles[i].x - circles[i].radius <= 0) {
+				circles[i].x = circles[i].radius;
+				circles[i].dx /= 2;
+				circles[i].dx *= -1;
+			}
 		}
 	}
+		
 
 	if (circles.length > 1) {
 
@@ -107,6 +110,9 @@ document.body.onmousemove = function () {
 document.addEventListener('keydown', function (e) {
 	if (e.keyCode === 32) {
 		circles = [];
+	}
+	if (e.keyCode === 81) {
+		collision = !collision;
 	}
 });
 
