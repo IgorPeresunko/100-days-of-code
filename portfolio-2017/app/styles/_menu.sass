@@ -1,0 +1,39 @@
+#menu
+    position: fixed
+    display: table
+    z-index: 900
+    opacity: 0
+    background-color: #fff
+    color: #000
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    overflow: hidden
+    transition-duration: .6s
+    pointer-events: none
+    &[on]
+        opacity: 1
+        pointer-events: auto
+    ul
+        list-style-type: none
+        display: table-cell
+        vertical-align: middle
+        width: 100%
+        height: 100vh
+        text-align: center
+        margin: 0
+        padding: 0
+        position: relative
+        a
+            display: inline-block
+            padding: 20px 0
+            width: 100%
+            font-size: 40px
+            text-decoration: none
+            font-family: $main-font
+            color: #000
+            transition: .5s
+            &:hover
+                background-color: #000
+                color: #fff
