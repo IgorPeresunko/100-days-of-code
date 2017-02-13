@@ -6,6 +6,21 @@
     top: 100vh
     background-color: #fff
     overflow: hidden
+    z-index: 800
+    font-family: $main-font
+    .content
+        position: absolute
+        padding: 60px 0
+        z-index: 100
+        left: -200px
+        opacity: 0
+        width: 40%
+        line-height: 32px
+        font-size: 20px
+        transition: 1s ease-out
+        &[on]
+            transform: translateX(300px)
+            opacity: 1
     canvas
         opacity: .5
         position: absolute

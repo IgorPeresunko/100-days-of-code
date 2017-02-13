@@ -1,9 +1,10 @@
 let currentText = 0,
     text = [
         'love code',
-        'am selfish',
-        'want to change the world'
+        'enjoy learning',
+        'think JavaScript will conquer the world...',
     ]
+text.sort(() => .5 - Math.random());
 
 const type = () => {
     setInterval(cursor, 500);
@@ -22,7 +23,7 @@ const print = (i = 0, growing) => {
     } else if (growing) {
         setTimeout(()=>print(i, false), 1500)
     } else if (i > 0) {
-        setTimeout(()=>print(--i, false), 100)
+        setTimeout(()=>print(--i, false), 50)
     } else {
         currentText < (text.length - 1) ? ++currentText : currentText = 0;
         setTimeout(() => print(0, true), 1000);

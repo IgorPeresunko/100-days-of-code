@@ -1,12 +1,13 @@
 const 	canvas = document.getElementById('balls-canvas'),
 		ctx = canvas.getContext('2d'),
 		circles = [];
+	
+let prev = performance.now();
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 /////// DRAWING /////////
-
 function draw() {
 	
 	ctx.fillStyle = '#f2f2f2';
@@ -66,11 +67,11 @@ function update() {
 						
 						circles[i].dy /= 2;
 						circles[i].dy *= -1;
-						circles[i].dx += circles[i].dx >= 10 ? 0 : 0.1;
+						//circles[i].dx += circles[i].dx >= 10 ? 0 : 0.1;
 
 						circles[j].dy *= 2;
 						circles[j].dy /= -1;
-						circles[j].dx += circles[i].dx >= 10 ? 0 : 0.1;
+						//circles[j].dx += circles[i].dx >= 10 ? 0 : 0.1;
 
 
 						
@@ -79,9 +80,12 @@ function update() {
 		}
 	}
 
-    if (circles.length > 10) circles.splice(0, 1);
+    if (circles.length > 200) circles.splice(0, 1);
+	if (circles.length > 500) circles.splice(200, 300);
 
 	draw();
+
+	//checkPerfomance();
 
 	requestAnimationFrame(update);
 }
@@ -90,13 +94,18 @@ function update() {
 
 /////// OTHERS FUNCTIONS //////////
 
-document.querySelector('#balls-canvas').onmousemove = () => {
+let preventBallRespawn = 0;
+
+document.querySelector('#about').onmousemove = () => {
+	if (preventBallRespawn++ < 3) return;
+	preventBallRespawn = 0;
+	
 	circles.push({
 		x: event.pageX,
 		y: event.pageY - innerHeight,
-		dy: Math.random() * 10 - 5,
+		dy: Math.random() * 10 - 10,
 		dx: Math.random() * 10 - 5,
-		radius: Math.random() * 100,
+		radius: Math.random() * 50,
 		color: (function() {
 			let letters = '0123456789ABCDEF'.split(''),
 				colors = '#';
@@ -107,6 +116,16 @@ document.querySelector('#balls-canvas').onmousemove = () => {
 			return colors;
 		}())
 	});
+}
+
+const checkPerfomance = () => {	
+	console.log(1000 / (performance.now() - prev));
+	prev = performance.now();
+}
+
+window.onresize = () => {
+	canvas.width = innerWidth;
+	canvas.height = innerHeight;
 }
 
 update();
