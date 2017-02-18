@@ -1,3 +1,4 @@
+(function() {
 let currentText = 0,
     text = [
         'love code',
@@ -19,7 +20,7 @@ const cursor = () => {
 const print = (i = 0, growing) => {
     document.querySelector('#text').textContent = text[currentText].slice(0, i);
     if (i < text[currentText].length && growing) {
-        setTimeout(()=>print(++i, true), 100)
+        setTimeout(()=>print(++i, true), 50)
     } else if (growing) {
         setTimeout(()=>print(i, false), 1500)
     } else if (i > 0) {
@@ -30,4 +31,5 @@ const print = (i = 0, growing) => {
     }
 }
 
-window.onload = type();
+type();
+}());

@@ -4,7 +4,7 @@ const express = require('express');
 
 // Create our app
 const app = express();
-const port = 2000;
+const port = process.env.PORT || 2000;
 
 app.use(express.static('public'));
 

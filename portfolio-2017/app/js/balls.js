@@ -80,8 +80,8 @@ function update() {
 		}
 	}
 
-    if (circles.length > 200) circles.splice(0, 1);
-	if (circles.length > 500) circles.splice(200, 300);
+    if (circles.length > 100) circles.splice(0, 1);
+	if (circles.length > 300) circles.splice(200, 300);
 
 	draw();
 
@@ -123,9 +123,5 @@ const checkPerfomance = () => {
 	prev = performance.now();
 }
 
-window.onresize = () => {
-	canvas.width = innerWidth;
-	canvas.height = innerHeight;
-}
 
 update();
