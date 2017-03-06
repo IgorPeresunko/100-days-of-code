@@ -45,3 +45,9 @@ Day31. FindTeacher - react/redux/mongo;
 
 Day32. FindTeacher - redux;
 
+Day33. Markov's algorithm and Post machine - javascript;
+
+Day34. FindTeaher - react/redux;
+
+Day35. FindTeacher - react/redux/firebase; - saving and fetching data;
+

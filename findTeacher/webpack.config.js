@@ -1,24 +1,29 @@
-var webpack = require("webpack");
+var webpack = require('webpack');
 
 module.exports = {
-	entry: './app/app.jsx',
+	entry: './client/app.jsx',
 	output: {
-		path: __dirname,
-		filename: './public/bundle.js'
+		path: __dirname + '/public/',
+		filename: 'bundle.js'
 	},
 	resolve: {
 		root: __dirname,
 		modulesDirectories: [
 			'node_modules',
-			'./app/components'
+			'./client/components'
 		],
 		alias: {			
-			applicationStyles: 'app/styles/app.sass'
+			applicationStyles: 'client/app.sass'
 		},
 		extensions: ['', '.js', '.jsx']
 	},
 	module: {
 		loaders: [
+			{
+                test: /\.js$/,
+                loader: "babel",
+                exclude: [/node_modules/, /public/]
+            },
 			{
 				loader: 'babel-loader',
 				query: {
@@ -28,12 +33,5 @@ module.exports = {
 			exclude: /(node_modules|bower_components)/
 			}	
 		]
-	},
-	plugins: [
-		new webpack.optimize.UglifyJsPlugin({
-			sourceMap: false,
-			warnings: false,
-			mangle: true
-		})
-	]
+	}
 };

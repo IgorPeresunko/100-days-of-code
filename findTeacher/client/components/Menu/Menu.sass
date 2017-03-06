@@ -1,0 +1,43 @@
+.menu
+    display: block
+    position: relative
+.search-field
+    display: block
+    text-align: center
+    margin: auto
+    width: 400px
+    position: relative
+    padding: 8px
+    font-size: 24px
+    color: #fff
+    background-color: transparent
+    border: none
+    border-bottom: 1px solid #fff
+    &:focus
+        outline: none
+        border-bottom: 2px solid #fff
+    &::-webkit-input-placeholder
+        color: #fff
+        font-style: italic
+    &::-moz-placeholder 
+        color: #fff
+        font-style: italic
+    &:-moz-placeholder
+        color: #fff
+        font-style: italic
+    &:-ms-input-placeholder
+        color: #fff
+        font-style: italic
+.add-note-button
+    position: absolute
+    right: 20px
+    top: 0
+    border: 1px solid #fff
+    padding: 10px
+    color: #fff
+    background-color: transparent
+    cursor: pointer
+    transition: .2s
+    &:hover
+        color: $main-color-dark
+        background-color: #fff

@@ -1,0 +1,45 @@
+.teacher-news
+    display: inline-block
+    position: relative
+    width: 27.3%
+    padding: 25px 10px
+    margin: 3%
+    background-color: #fff
+    transition: .2s
+    box-shadow: $shadow
+    font-family: $font
+    cursor: pointer
+    
+    &:hover
+        background-color: $main-color
+        color: #fff
+        transform: translate3d(2px, 2px, 0)
+
+    span
+        display: block
+        width: 100%
+        &.name
+            font-weight: 700
+            font-size: 22px
+            font-family: 'Cambria, Cochin, Georgia, Times, Times New Roman, serif'
+            text-align: center
+        &.time
+            text-align: center
+            width: 50%
+            display: inline-block
+            font-size: 14px
+            font-style: italic
+        &.why
+            padding: 10px 0
+            font-size: 18px
+    .likes
+        display: inline-block
+        text-align: center
+        margin: auto
+        width: 100%
+        padding: 20px 0 0 0
+        span
+            display: inline-block
+            width: auto
+        .like
+            cursor: pointer
